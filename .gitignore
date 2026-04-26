@@ -1,0 +1,17 @@
+# Python virtualenv (the .open/ venv in this directory)
+.open/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
