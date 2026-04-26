@@ -294,6 +294,28 @@ Detailed contribution guides in [`projects/`](projects/):
 
 ---
 
+## Ontology
+
+The projects in this repo form a **knowledge graph**, not just a flat list.
+
+The graph IS the live ontology (Apache AGE / Cypher). OWL export is inspection-only.
+
+```
+Stack Layer (order) → Projects at that layer → Edges between them
+```
+
+Key edge types: `RUNS_ON`, `DEPENDS_ON`, `COMPLEMENTS`, `SUPERSEDES`, `MERGES_INTO`, `IMPLEMENTS_SPEC`, `TEACHES`, `IN_TIER`
+
+See [`ontology/`](ontology/) for:
+- [`ontology/README.md`](ontology/README.md) — full ontology design and node/edge reference
+- [`ontology/seed_concepts.json`](ontology/seed_concepts.json) — hand-authored taxonomy (stack layers, skills, foundations, concepts)
+- [`ontology/relationships.json`](ontology/relationships.json) — known edges between specific projects
+- [`ontology/schema.cypher`](ontology/schema.cypher) — Apache AGE DDL + query examples
+- [`ontology/bootstrap.cypher`](ontology/bootstrap.cypher) — one-time graph init
+- [`ontology/export.py`](ontology/export.py) — generates `open_star.owl` for Protégé (never edit the OWL directly)
+
+---
+
 ## My journey
 
 Track contributions in [`MY_JOURNEY.md`](MY_JOURNEY.md).

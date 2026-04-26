@@ -1,0 +1,149 @@
+{
+  "_comment": "Known edges between open* projects. Loaded by bootstrap.cypher. Add new entries here; do not edit the graph directly.",
+  "_version": "1.0.0",
+
+  "depends_on": [
+    {
+      "from": "OpenVINO",
+      "to": "ONNX",
+      "note": "OpenVINO accepts ONNX model format as a primary input"
+    },
+    {
+      "from": "OpenStack",
+      "to": "OpenTelemetry",
+      "note": "Nova, Neutron, and Cinder emit OTLP traces; Zuul CI uses OTel spans"
+    },
+    {
+      "from": "OpenLineage",
+      "to": "OpenSearch",
+      "note": "Marquez backend optionally stores lineage events in OpenSearch"
+    }
+  ],
+
+  "complements": [
+    {
+      "a": "OpenTelemetry",
+      "b": "OpenSearch",
+      "note": "OpenTelemetry OTLP exporter ships traces and logs into OpenSearch for storage and query"
+    },
+    {
+      "a": "OpenSearch",
+      "b": "Open Policy Agent",
+      "note": "OpenSearch index used as external data bundle in OPA policy evaluation"
+    },
+    {
+      "a": "OpenTitan",
+      "b": "OpenBMC",
+      "note": "OpenTitan silicon RoT integrates into OpenBMC secure boot and attestation chain"
+    },
+    {
+      "a": "ONNX",
+      "b": "OpenVINO",
+      "note": "ONNX is the model interchange format that OpenVINO optimizes and deploys"
+    },
+    {
+      "a": "OpenCV",
+      "b": "OpenVINO",
+      "note": "OpenCV inference backend can use OpenVINO for hardware-accelerated vision"
+    },
+    {
+      "a": "Open Policy Agent",
+      "b": "OpenSSF Scorecard",
+      "note": "Scorecard results can be fed as OPA input data for supply-chain policy enforcement"
+    },
+    {
+      "a": "OpenSCAP",
+      "b": "Open Policy Agent",
+      "note": "OpenSCAP compliance scan results can be consumed by OPA for posture policy"
+    },
+    {
+      "a": "OpenLineage",
+      "b": "OpenMetadata",
+      "note": "OpenMetadata ingests OpenLineage events as its lineage backend"
+    },
+    {
+      "a": "OpenTofu",
+      "b": "OpenStack",
+      "note": "OpenTofu OpenStack provider provisions and manages OpenStack resources"
+    },
+    {
+      "a": "OpenBMC",
+      "b": "OpenSBI",
+      "note": "OpenSBI provides the RISC-V firmware layer that some OpenBMC SoCs boot from"
+    },
+    {
+      "a": "OpenROAD",
+      "b": "OpenLane",
+      "note": "OpenLane wraps OpenROAD as its core place-and-route engine"
+    },
+    {
+      "a": "OpenFPGA",
+      "b": "OpenROAD",
+      "note": "OpenFPGA can use OpenROAD for physical implementation of generated FPGA fabrics"
+    }
+  ],
+
+  "supersedes": [
+    {
+      "from": "OpenTofu",
+      "to": "Terraform",
+      "note": "OpenTofu is the OSS fork of Terraform created after HashiCorp BSL license change (2023)"
+    },
+    {
+      "from": "OpenSearch",
+      "to": "Elasticsearch",
+      "note": "OpenSearch is the AWS-led Apache-2.0 fork of Elasticsearch 7.10 (2021)"
+    },
+    {
+      "from": "OpenBao",
+      "to": "HashiCorp Vault",
+      "note": "OpenBao is the LF-governed fork of Vault after BSL license change (2023)"
+    }
+  ],
+
+  "merges_into": [
+    {
+      "from": "OpenTracing",
+      "to": "OpenTelemetry",
+      "year": 2019,
+      "note": "OpenTracing API and specification merged into OpenTelemetry at project inception"
+    },
+    {
+      "from": "OpenCensus",
+      "to": "OpenTelemetry",
+      "year": 2019,
+      "note": "OpenCensus libraries and agents merged into OpenTelemetry at project inception"
+    }
+  ],
+
+  "implements_spec": [
+    { "project": "Open Container Initiative runc", "spec": "OCI Runtime Specification" },
+    { "project": "OpenTelemetry",                  "spec": "OpenTelemetry Protocol (OTLP)" },
+    { "project": "OpenMetrics",                    "spec": "OpenMetrics Exposition Format" },
+    { "project": "OpenID Connect",                 "spec": "OpenID Connect Core 1.0" },
+    { "project": "OpenBMC",                        "spec": "DMTF Redfish API" },
+    { "project": "OpenBMC",                        "spec": "IPMI 2.0" },
+    { "project": "OpenSBI",                        "spec": "RISC-V SBI Specification" },
+    { "project": "OpenTitan",                      "spec": "FIPS 140-2/3 (target)" },
+    { "project": "ONNX",                           "spec": "ONNX IR Specification" },
+    { "project": "OpenAPI",                        "spec": "OpenAPI Specification 3.x" },
+    { "project": "Open Policy Agent",              "spec": "Rego Policy Language Specification" },
+    { "project": "OpenSSF SLSA",                   "spec": "SLSA Build Provenance Specification" },
+    { "project": "OpenChain",                      "spec": "ISO/IEC 5230 (OpenChain)" }
+  ],
+
+  "part_of": [
+    { "child": "OpenStack Nova",     "parent": "OpenStack" },
+    { "child": "OpenStack Neutron",  "parent": "OpenStack" },
+    { "child": "OpenStack Cinder",   "parent": "OpenStack" },
+    { "child": "OpenStack Swift",    "parent": "OpenStack" },
+    { "child": "OpenStack Ironic",   "parent": "OpenStack" },
+    { "child": "OpenStack Keystone", "parent": "OpenStack" },
+    { "child": "OpenStack Heat",     "parent": "OpenStack" },
+    { "child": "OpenStack Magnum",   "parent": "OpenStack" },
+    { "child": "OpenSearch Dashboards", "parent": "OpenSearch" },
+    { "child": "OpenSSF Scorecard",  "parent": "OpenSSF" },
+    { "child": "OpenSSF SLSA",       "parent": "OpenSSF" },
+    { "child": "OpenLane",           "parent": "OpenROAD" }
+  ]
+}

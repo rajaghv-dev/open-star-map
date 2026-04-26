@@ -1,0 +1,121 @@
+{
+  "_comment": "Hand-authored seed taxonomy. Load via bootstrap.cypher before any automation. Same pattern as CFP ontology/seed_concepts.json.",
+  "_version": "1.0.0",
+
+  "stack_layers": [
+    { "name": "Silicon & EDA",      "slug": "silicon",      "order": 1, "description": "RTL, EDA flows, FPGA, processor IP, memory compilers" },
+    { "name": "Firmware",           "slug": "firmware",     "order": 2, "description": "BMC, SBI, JTAG debug, root-of-trust, boot firmware" },
+    { "name": "OS & Networking",    "slug": "os-net",       "order": 3, "description": "Operating systems, SDN, router firmware, init systems" },
+    { "name": "Cloud & IaaS",       "slug": "cloud",        "order": 4, "description": "IaaS platforms, orchestration, containers, serverless" },
+    { "name": "Observability",      "slug": "observability","order": 5, "description": "Traces, metrics, logs, dashboards, alerting" },
+    { "name": "Policy & Security",  "slug": "security",     "order": 6, "description": "Policy-as-code, compliance, crypto, supply-chain security" },
+    { "name": "AI & Inference",     "slug": "ai",           "order": 7, "description": "Model formats, inference engines, computer vision, LLM serving" },
+    { "name": "Data Governance",    "slug": "data-gov",     "order": 8, "description": "Lineage, metadata, catalog, data quality, FinOps" }
+  ],
+
+  "categories": [
+    { "name": "Infra Foundations & Cloud Platforms", "slug": "infra-cloud" },
+    { "name": "OpenStack Services",                  "slug": "openstack" },
+    { "name": "Edge & Telco Cloud",                  "slug": "edge-telco" },
+    { "name": "Firmware & Hardware Platforms",       "slug": "firmware-hw" },
+    { "name": "Silicon & EDA",                       "slug": "silicon-eda" },
+    { "name": "HPC & Open Compute",                  "slug": "hpc-ocp" },
+    { "name": "Observability",                       "slug": "obs" },
+    { "name": "Policy, Security & Compliance",       "slug": "security-compliance" },
+    { "name": "Containers & Orchestration",          "slug": "containers" },
+    { "name": "Storage & Distributed FS",            "slug": "storage" },
+    { "name": "Networking & SDN",                    "slug": "networking" },
+    { "name": "Operating Systems",                   "slug": "os" },
+    { "name": "AI, Inference & ML",                  "slug": "ai-ml" },
+    { "name": "Data Platform & Governance",          "slug": "data" },
+    { "name": "APIs, Identity & DevOps Standards",   "slug": "apis-devops" },
+    { "name": "Open Data & Collaboration",           "slug": "open-data" }
+  ],
+
+  "foundations": [
+    { "name": "OpenInfra Foundation", "url": "https://openinfra.dev",          "governs": ["OpenStack","StarlingX","Kata Containers","Zuul"] },
+    { "name": "CNCF",                 "url": "https://cncf.io",                "governs": ["OpenTelemetry","Open Policy Agent","OpenMetrics","OCI","OpenCost","OpenFeature","OpenKruise","OpenYurt","OpenEBS"] },
+    { "name": "Linux Foundation",     "url": "https://linuxfoundation.org",    "governs": ["OpenSSF","OpenChain","OpenLineage","ONNX","OpenTofu","OpenFGA"] },
+    { "name": "Apache Software Foundation", "url": "https://apache.org",       "governs": ["OpenWhisk"] },
+    { "name": "lowRISC",              "url": "https://lowrisc.org",            "governs": ["OpenTitan"] },
+    { "name": "OpenHW Group",         "url": "https://openhwgroup.org",        "governs": ["OpenHW Group cores"] },
+    { "name": "OpenROAD Project",     "url": "https://theopenroadproject.org", "governs": ["OpenROAD"] },
+    { "name": "Intel",                "url": "https://intel.com",              "governs": ["OpenVINO"] },
+    { "name": "OpenBMC Community",    "url": "https://github.com/openbmc",     "governs": ["OpenBMC"] },
+    { "name": "OpenSSF",              "url": "https://openssf.org",            "governs": ["OpenSSF Scorecard","OpenSSF SLSA"] }
+  ],
+
+  "skills": [
+    { "name": "Distributed systems",       "domain": "systems",    "projects": ["OpenStack","OpenSearch","OpenTelemetry"] },
+    { "name": "Hardware security",         "domain": "hardware",   "projects": ["OpenTitan","OpenBMC"] },
+    { "name": "RTL design",                "domain": "hardware",   "projects": ["OpenTitan","OpenHW Group","OpenROAD","OpenFPGA"] },
+    { "name": "EDA / chip automation",     "domain": "hardware",   "projects": ["OpenROAD","OpenLane","OpenFASOC","OpenRAM"] },
+    { "name": "Firmware engineering",      "domain": "firmware",   "projects": ["OpenBMC","OpenSBI","OpenOCD"] },
+    { "name": "Policy-as-code",            "domain": "security",   "projects": ["Open Policy Agent","OpenFGA","OpenTDF"] },
+    { "name": "Supply-chain security",     "domain": "security",   "projects": ["OpenSSF Scorecard","OpenSSF SLSA","OpenChain"] },
+    { "name": "ML inference optimization", "domain": "ai",         "projects": ["OpenVINO","ONNX","OpenXLA"] },
+    { "name": "Computer vision",           "domain": "ai",         "projects": ["OpenCV","OpenMMLab","OpenVINO"] },
+    { "name": "Observability engineering", "domain": "systems",    "projects": ["OpenTelemetry","OpenMetrics","OpenSearch"] },
+    { "name": "Infrastructure as code",    "domain": "devops",     "projects": ["OpenTofu","OpenStack Heat"] },
+    { "name": "Kubernetes internals",      "domain": "containers", "projects": ["OpenYurt","OpenKruise","OpenShift","Kata Containers"] },
+    { "name": "Data lineage",              "domain": "data",       "projects": ["OpenLineage","OpenMetadata"] },
+    { "name": "Graph databases",           "domain": "data",       "projects": ["OpenMetadata","OpenLineage"] },
+    { "name": "Secrets management",        "domain": "security",   "projects": ["OpenBao","OpenSSL"] },
+    { "name": "Network programming",       "domain": "networking", "projects": ["Open vSwitch","OpenWrt","OpenBGPD"] },
+    { "name": "Embedded Linux",            "domain": "firmware",   "projects": ["OpenEmbedded","OpenWrt","OpenBMC"] }
+  ],
+
+  "tiers": [
+    {
+      "name": "Strategic",
+      "priority": 1,
+      "description": "Track deeply — align with AI infra, hardware, compliance, data-center themes",
+      "projects": ["OpenInfra Foundation","OpenStack","StarlingX","Kata Containers","OpenBMC","Open Compute Project","OpenTitan","OpenROAD","OpenTelemetry","Open Policy Agent","OpenAPI","Open Container Initiative","OpenSSF","OpenChain","OpenSCAP","OpenSearch","ONNX","OpenVINO","OpenCV","OpenEmbedded"]
+    },
+    {
+      "name": "Practical",
+      "priority": 2,
+      "description": "Build demos — the end-to-end demo chain",
+      "projects": ["OpenTelemetry","OpenSearch","Open Policy Agent","OpenAPI","ONNX","OpenVINO","OpenCV","OpenBMC","OpenSCAP","OpenSSF Scorecard"]
+    },
+    {
+      "name": "Watchlist",
+      "priority": 3,
+      "description": "Positioning — silicon trust, open EDA, AI governance, enterprise platforms",
+      "projects": ["OpenTitan","OpenROAD","OpenLane","OpenSBI","OpenHW Group","Open Compute Project","StarlingX","OpenDataHub","OpenLineage","OpenMetadata","OpenTofu","OpenBao","OpenFGA"]
+    }
+  ],
+
+  "concepts": [
+    { "name": "root-of-trust",         "parent": null,           "definition": "Hardware anchor for boot integrity and key management" },
+    { "name": "secure-boot",           "parent": "root-of-trust","definition": "Verified chain from firmware to OS" },
+    { "name": "attestation",           "parent": "root-of-trust","definition": "Cryptographic proof of device identity/state" },
+    { "name": "bmc",                   "parent": null,           "definition": "Baseboard Management Controller — out-of-band server management" },
+    { "name": "redfish",               "parent": "bmc",          "definition": "REST API standard for hardware management" },
+    { "name": "ipmi",                  "parent": "bmc",          "definition": "Older hardware management protocol" },
+    { "name": "eda-flow",              "parent": null,           "definition": "Electronic Design Automation — RTL to GDSII" },
+    { "name": "place-and-route",       "parent": "eda-flow",     "definition": "Automated cell placement and wire routing step" },
+    { "name": "synthesis",             "parent": "eda-flow",     "definition": "RTL to gate-level netlist" },
+    { "name": "observability",         "parent": null,           "definition": "Traces + metrics + logs — understanding system state from outputs" },
+    { "name": "traces",                "parent": "observability","definition": "Distributed request tracing" },
+    { "name": "metrics",               "parent": "observability","definition": "Time-series numerical measurements" },
+    { "name": "logs",                  "parent": "observability","definition": "Timestamped event records" },
+    { "name": "policy-as-code",        "parent": null,           "definition": "Expressing access/compliance rules as machine-readable code" },
+    { "name": "rego",                  "parent": "policy-as-code","definition": "Declarative policy language used by OPA" },
+    { "name": "supply-chain-security", "parent": null,           "definition": "Integrity and provenance of software build and dependency chain" },
+    { "name": "sbom",                  "parent": "supply-chain-security","definition": "Software Bill of Materials" },
+    { "name": "slsa",                  "parent": "supply-chain-security","definition": "Build provenance framework levels" },
+    { "name": "inference",             "parent": null,           "definition": "Running a trained ML model on input data" },
+    { "name": "model-format",          "parent": "inference",    "definition": "Serialization format for trained models" },
+    { "name": "graph-optimization",    "parent": "inference",    "definition": "Transforming compute graph for speed/memory" },
+    { "name": "data-lineage",          "parent": null,           "definition": "Record of where data came from and how it was transformed" },
+    { "name": "data-catalog",          "parent": null,           "definition": "Searchable inventory of datasets and their metadata" },
+    { "name": "iac",                   "parent": null,           "definition": "Infrastructure as Code — declarative resource provisioning" },
+    { "name": "container-runtime",     "parent": null,           "definition": "Software that executes container workloads (OCI spec)" },
+    { "name": "service-mesh",          "parent": null,           "definition": "L7 proxy layer for microservice traffic management" },
+    { "name": "edge-cloud",            "parent": null,           "definition": "Cloud infrastructure operating at or near physical endpoints" },
+    { "name": "fine-grained-authz",    "parent": "policy-as-code","definition": "Relationship-based access control at object level (ReBAC)" },
+    { "name": "open-isa",              "parent": null,           "definition": "Open instruction set architecture (RISC-V, OpenPOWER)" },
+    { "name": "compliance-scanning",   "parent": "supply-chain-security","definition": "Automated checking against security benchmarks (CIS, OVAL, XCCDF)" }
+  ]
+}
