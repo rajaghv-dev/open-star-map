@@ -8,97 +8,81 @@ Last updated: 2026-04-26
 
 | Item | Status |
 |------|--------|
-| `README.md` | 100 open* projects, 16 categories, strategic/practical/watchlist tiers, demo chain |
-| `ontology/` | Full AGE graph schema, seed concepts (8 layers, 16 categories, 30 concepts), relationships.json, bootstrap.cypher, export.py |
-| `CONTRIBUTING.md` | Criteria checklist + project file template |
-| `MY_JOURNEY.md` | Personal contribution tracker (empty — fill in as you start) |
-| `scripts/discover.py` | GitHub API search with contributor-friendliness scoring |
-| `CLAUDE.md` | Session instructions (auto-loaded by Claude Code) |
+| `README.md` | Best 70 personal strategy + open* map + navigation |
+| `ECOSYSTEM.md` | Full 430+ project A–K reference (languages, AI/ML, cloud, security, EDA, etc.) |
+| `context.md` | Architecture decisions, scope, ontology design, demo chains |
+| `prompts.md` | 8 LLM prompts (classify, GFI strategy, verify OSS, deep-dive gen, score, map relations, Cypher gen, cold-start) |
+| `SESSION.md` | This file |
+| `CLAUDE.md` | Session instructions (auto-loaded) |
+| `MY_JOURNEY.md` | Personal contribution tracker (fill as you go) |
+| `CONTRIBUTING.md` | Criteria + project file template |
+| `memory/MEMORY.md` | Memory index |
+| `memory/user_profile.md` | Background, fluency, goals |
+| `memory/project_state.md` | Repo state, decisions |
+| `memory/feedback.md` | Standing behaviors |
+| `ontology/README.md` | Node labels, edge types, stack layer order |
+| `ontology/seed_concepts.json` | v2.0: 8 layers, A-K categories, 9 strategy groups, 17 skills, 42 concepts |
+| `ontology/relationships.json` | Known project edges |
+| `ontology/schema.cypher` | Apache AGE DDL |
+| `ontology/bootstrap.cypher` | One-time graph init |
+| `ontology/export.py` | AGE → OWL |
+| `scripts/discover.py` | GitHub search + contributor scoring |
 
-## Deep-dive project files (`projects/`)
+## Deep-dive project files (19 total)
 
-| File | Project | Tier |
-|------|---------|------|
-| `opentelemetry.md` | OpenTelemetry | Strategic + Practical |
-| `openbmc.md` | OpenBMC | Strategic |
-| `openstack.md` | OpenStack | Strategic |
-| `onnx.md` | ONNX | Strategic + Practical |
-| `openvino.md` | OpenVINO | Strategic + Practical |
-| `opencv.md` | OpenCV | Strategic + Practical |
-| `open-policy-agent.md` | OPA | Strategic + Practical |
-| `opensearch.md` | OpenSearch | Strategic + Practical |
-| `opentofu.md` | OpenTofu | — |
-| `opentitan.md` | OpenTitan | Strategic + Watchlist |
-| `openroad.md` | OpenROAD | Strategic + Watchlist |
-| `openlineage.md` | OpenLineage | Watchlist |
-| `openssf-scorecard.md` | OpenSSF Scorecard | Strategic + Practical |
-| `kata-containers.md` | Kata Containers | Strategic |
-| `openembedded.md` | OpenEmbedded | Strategic |
-| `openscap.md` | OpenSCAP | Strategic + Practical |
-| `openfeature.md` | OpenFeature | Practical (beginner) |
-| `openapi.md` | OpenAPI | Strategic |
-| `open-container-initiative.md` | OCI / runc | Strategic |
+OpenTelemetry · OpenBMC · OpenStack · ONNX · OpenVINO · OpenCV · OPA · OpenSearch ·
+OpenTofu · OpenTitan · OpenROAD · OpenLineage · OpenSSF Scorecard · Kata Containers ·
+OpenEmbedded · OpenSCAP · OpenFeature · OpenAPI · OCI/runc
 
 ---
 
-## Strategic projects still needing deep-dive files
+## Next tasks (ordered)
 
-High priority — these are in Strategic or Practical tier:
+### P0 — Start contributing NOW
+Pick one project from Practical tier. Best entry points:
+| Project | Why start here | Good first issue URL |
+|---------|---------------|----------------------|
+| OpenTelemetry | Largest CNCF community, Go, fastest PR reviews | [→](https://github.com/open-telemetry/opentelemetry-collector/labels/good%20first%20issue) |
+| OpenFeature | Small SDKs, pick your language, spec-driven | [→](https://github.com/open-feature/go-sdk/labels/good%20first%20issue) |
+| OpenSSF Scorecard | Go, isolated check modules, security focus | [→](https://github.com/ossf/scorecard/labels/good%20first%20issue) |
+| RAGAS | Python, evaluation focus, AI-adjacent | [→](https://github.com/explodinggradients/ragas/labels/good%20first%20issue) |
 
-| Project | Tier | Why urgent |
-|---------|------|------------|
-| StarlingX | Strategic | Edge/telco cloud — complex, unique skills |
-| OpenChain | Strategic | Compliance standard — beginner-friendly contribution |
-| OpenSSF (umbrella) | Strategic | Multiple working groups, many beginner issues |
-| OpenEBS | Practical | Kubernetes storage — active CNCF project |
-| OpenFGA | Watchlist | Fine-grained authz — Go, growing fast |
-| OpenBao | Watchlist | Vault fork — Go, active migration from HashiCorp |
-| OpenDataHub | Watchlist | AI/data platform on K8s |
-| OpenMetadata | Watchlist | Pairs with OpenLineage |
+Steps:
+- [ ] Pick one project above
+- [ ] Follow its `projects/*.md` dev setup
+- [ ] Assign yourself a `good first issue`
+- [ ] Update `MY_JOURNEY.md` status → `exploring`
 
----
+### P1 — Bootstrap the knowledge graph
+- [ ] `docker run -p 5432:5432 apache/age:PG16_latest`
+- [ ] `psql -f ontology/bootstrap.cypher`
+- [ ] Load all projects from ECOSYSTEM.md via Python loader
+- [ ] Run `python3 ontology/export.py --dsn ... --output ontology/open_star.owl`
+- [ ] Open `open_star.owl` in Protégé
 
-## Next tasks (ordered by priority)
+### P2 — Run discovery
+- [ ] `python3 scripts/discover.py --token <pat> --min-stars 100 --json > /tmp/discovered.json`
+- [ ] Triage against criteria in `CONTRIBUTING.md`
+- [ ] Add qualified projects to ECOSYSTEM.md and `ontology/relationships.json`
 
-### P0 — Start contributing
-- [ ] Pick one Beginner project from Practical tier
-  - Best options: OpenTelemetry, OpenFeature, OpenSSF Scorecard, OpenRefine
-- [ ] Set up dev environment (follow the project's `.md` file)
-- [ ] Find a `good first issue`, assign yourself
-- [ ] Update `MY_JOURNEY.md` with status
-
-### P1 — Fill remaining deep-dive files
+### P3 — Fill remaining deep-dives (strategic/watchlist)
 - [ ] `projects/starlingx.md`
 - [ ] `projects/openchain.md`
-- [ ] `projects/openssf.md`
 - [ ] `projects/openfga.md`
 - [ ] `projects/openbao.md`
+- [ ] `projects/openmetadata.md`
 
-### P2 — Bootstrap the knowledge graph
-- [ ] Install Apache AGE: `docker run -p 5432:5432 apache/age:PG16_latest`
-- [ ] Run `ontology/bootstrap.cypher` to seed the graph
-- [ ] Load full project list via a Python loader script
-- [ ] Run `ontology/export.py` to generate `open_star.owl`
-- [ ] Open in Protégé and verify the ontology hierarchy
-
-### P3 — Discovery automation
-- [ ] Run `scripts/discover.py --token <pat> --min-stars 100` to find new open* projects
-- [ ] Triage results against criteria in `CONTRIBUTING.md`
-- [ ] Add qualified projects to `README.md` and `ontology/relationships.json`
-
-### P4 — Push to GitHub
-- [ ] `gh repo create open-star-map --public --source=. --push`
-- [ ] Add GitHub Actions CI: validate JSON files, check dead links in README
+### P4 — Add GitHub Actions CI
+- [ ] `.github/workflows/validate.yml` — validate JSON files + check dead links in README
 
 ---
 
-## Key design decisions (do not re-debate)
+## Key decisions (settled — do not re-debate)
 
-| Decision | Rationale |
-|----------|-----------|
-| Apache AGE = live ontology | Graph IS the ontology; OWL is export-only |
-| OWL / owlready2 = inspection only | Same pattern as CFP conference pipeline |
-| `seed_concepts.json` is hand-authored | Bootstrapped before any automation |
-| `relationships.json` = explicit edges | Not inferred — human-verified connections only |
-| 100-project scope | User-provided list; non-OSS projects flagged clearly |
-| Difficulty ratings | beginner/intermediate/advanced — conservative, not aspirational |
+| Decision | See |
+|----------|-----|
+| Apache AGE = live ontology, OWL = export-only | context.md §Ontology design |
+| No individual .md for non-strategic projects | context.md §File structure |
+| Best 70 personal strategy groups | README.md + context.md |
+| Commit specific files only, never git add . | memory/feedback.md |
+| Push to GitHub after every session | memory/feedback.md |
