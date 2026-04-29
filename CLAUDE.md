@@ -5,7 +5,7 @@ Auto-loaded by Claude Code at session start. Read this before touching any file.
 ## Purpose
 
 Personal learning and contribution tracker for truly open-source projects.
-Scope: 430+ projects (open* + languages + AI/ML + cloud + security + EDA) curated for
+Scope: 445+ projects (open* + languages + AI/ML + cloud + security + EDA + networking + RAN + ASWF) curated for
 **SuryaOS + AI systems + compliance + hardware/software acceleration**.
 
 Goal: learn deeply → become a contributor to each strategic/practical project.
@@ -21,7 +21,7 @@ Goal: learn deeply → become a contributor to each strategic/practical project.
 
 ```
 README.md           Best 70 personal strategy + open* map + navigation
-ECOSYSTEM.md        Full 430+ project A–K reference tables
+ECOSYSTEM.md        Full 445+ project A–L reference tables
 context.md          Architecture decisions, scope, ontology design, demo chains
 prompts.md          8 LLM prompts for classification, contribution, ontology
 SESSION.md          Current state + ordered task list

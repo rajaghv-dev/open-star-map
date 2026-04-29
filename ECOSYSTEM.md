@@ -3,7 +3,7 @@
 All projects verified: OSI-approved license, public source, active community.
 Organized by domain. License abbreviations use SPDX identifiers.
 
-Jump to: [A](#a-languages-runtimes-compilers) · [B](#b-aiml-deep-learning) · [C](#c-llms-agents-rag-evaluation) · [D](#d-cloud-native-containers-orchestration) · [E](#e-observability-logging-tracing-performance) · [F](#f-data-engineering-databases-analytics) · [G](#g-security-identity-compliance-supply-chain) · [H](#h-os-embedded-firmware-hardware-eda) · [I](#i-web-backend-frontend) · [J](#j-developer-tools-cicd-editors) · [K](#k-desktop-graphics-media-robotics-scientific) · [Open*](#open-project-map)
+Jump to: [A](#a-languages-runtimes-compilers) · [B](#b-aiml-deep-learning) · [C](#c-llms-agents-rag-evaluation) · [D](#d-cloud-native-containers-orchestration) · [E](#e-observability-logging-tracing-performance) · [F](#f-data-engineering-databases-analytics) · [G](#g-security-identity-compliance-supply-chain) · [H](#h-os-embedded-firmware-hardware-eda) · [I](#i-web-backend-frontend) · [J](#j-developer-tools-cicd-editors) · [K](#k-desktop-graphics-media-robotics-scientific) · [L](#l-additions-2026-04-29) · [Open*](#open-project-map)
 
 ---
 
@@ -514,6 +514,30 @@ Jump to: [A](#a-languages-runtimes-compilers) · [B](#b-aiml-deep-learning) · [
 
 ---
 
+## L. Additions (2026-04-29)
+
+Networking, telco/RAN, AI agents, film/VFX pipeline, hardware standards.
+
+| # | Project | Role | License | Link |
+|---|---------|------|---------|------|
+| 431 | OpenFPGA | Open-source FPGA IP / fabric | MIT | [github.com/lnis-uofu/OpenFPGA](https://github.com/lnis-uofu/OpenFPGA) |
+| 432 | OpenAirInterface | Open 5G RAN + Core | Apache-2.0 | [openairinterface.org](https://openairinterface.org) |
+| 433 | OKD | Kubernetes distro (OpenShift upstream) | Apache-2.0 | [okd.io](https://okd.io) |
+| 434 | Open vSwitch (OVS) | Production virtual switch | Apache-2.0 | [openvswitch.org](https://openvswitch.org) |
+| 435 | OVN | Virtual networking on OVS | Apache-2.0 | [github.com/ovn-org/ovn](https://github.com/ovn-org/ovn) |
+| 436 | OpenConfig | Vendor-neutral network config models | Apache-2.0 | [openconfig.net](https://openconfig.net) |
+| 437 | OpenHands | Autonomous coding agent (formerly OpenDevin) | MIT | [github.com/All-Hands-AI/OpenHands](https://github.com/All-Hands-AI/OpenHands) |
+| 438 | Open Interpreter | Natural-language code interpreter | AGPL-3.0 | [github.com/OpenInterpreter/open-interpreter](https://github.com/OpenInterpreter/open-interpreter) |
+| 439 | OpenUSD | Universal Scene Description (Pixar/ASWF) | TOST (Apache-2.0 derived) | [openusd.org](https://openusd.org) |
+| 440 | OpenEXR | HDR image format (ASWF) | BSD-3 | [openexr.com](https://openexr.com) |
+| 441 | OpenColorIO | Color management pipeline (ASWF) | BSD-3 | [opencolorio.org](https://opencolorio.org) |
+| 442 | OpenZFS | Filesystem / volume manager | CDDL-1.0 | [openzfs.org](https://openzfs.org) |
+| 443 | OpenNebula | Open IaaS / hybrid cloud | Apache-2.0 | [opennebula.io](https://opennebula.io) |
+| 444 | OpenStreetMap | Open geographic data project | ODbL | [openstreetmap.org](https://openstreetmap.org) |
+| 445 | OpenAlex | Open scholarly metadata graph | CC0 | [openalex.org](https://openalex.org) |
+
+---
+
 ## Open* project map
 
 The original 100 curated open\* projects, organized by tier and stack layer.
@@ -558,7 +582,8 @@ The original 100 curated open\* projects, organized by tier and stack layer.
 
 ### Watchlist tier
 
-OpenTofu · OpenBao · OpenFGA · OpenLineage · OpenMetadata · OpenDataHub · OpenLane · OpenSBI · OpenHW Group · OCP
+OpenTofu · OpenBao · OpenFGA · OpenLineage · OpenMetadata · OpenDataHub · OpenLane · OpenSBI · OpenHW Group · OCP ·
+OKD · OpenAirInterface · OpenFPGA · Open vSwitch · OpenConfig · OpenHands · OpenUSD · OpenEXR
 
 ### Not truly open (listed for awareness)
 

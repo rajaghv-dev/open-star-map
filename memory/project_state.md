@@ -15,7 +15,7 @@ type: project
 | File | Status |
 |------|--------|
 | `README.md` | Best 70 control plane + open* map + navigation |
-| `ECOSYSTEM.md` | Full 430+ project A–K reference tables |
+| `ECOSYSTEM.md` | Full 445+ project A–L reference tables (Section L added 2026-04-29: networking, RAN, AI agents, ASWF) |
 | `context.md` | Architecture decisions, scope, ontology design, demo chains |
 | `prompts.md` | 8 LLM prompts for classification, contribution planning, ontology |
 | `SESSION.md` | Current state + ordered task list |

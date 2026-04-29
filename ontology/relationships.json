@@ -17,6 +17,16 @@
       "from": "OpenLineage",
       "to": "OpenSearch",
       "note": "Marquez backend optionally stores lineage events in OpenSearch"
+    },
+    {
+      "from": "OVN",
+      "to": "Open vSwitch",
+      "note": "OVN is the network-virtualization layer that programs OVS data plane"
+    },
+    {
+      "from": "OpenStack",
+      "to": "Open vSwitch",
+      "note": "Neutron ML2 OVS/OVN driver is the de-facto OpenStack networking backend"
     }
   ],
 
@@ -80,6 +90,21 @@
       "a": "OpenFPGA",
       "b": "OpenROAD",
       "note": "OpenFPGA can use OpenROAD for physical implementation of generated FPGA fabrics"
+    },
+    {
+      "a": "OpenAirInterface",
+      "b": "StarlingX",
+      "note": "OpenAirInterface 5G RAN/Core deploys naturally on StarlingX edge clouds"
+    },
+    {
+      "a": "OpenConfig",
+      "b": "Open vSwitch",
+      "note": "OVS supports OpenConfig models for declarative switch configuration"
+    },
+    {
+      "a": "OpenHands",
+      "b": "OpenTelemetry",
+      "note": "OpenHands agents emit OTLP traces and metrics for run observability"
     }
   ],
 
@@ -98,6 +123,11 @@
       "from": "OpenBao",
       "to": "HashiCorp Vault",
       "note": "OpenBao is the LF-governed fork of Vault after BSL license change (2023)"
+    },
+    {
+      "from": "OpenHands",
+      "to": "OpenDevin",
+      "note": "OpenHands is the renamed continuation of the OpenDevin coding-agent project"
     }
   ],
 
@@ -144,6 +174,9 @@
     { "child": "OpenSearch Dashboards", "parent": "OpenSearch" },
     { "child": "OpenSSF Scorecard",  "parent": "OpenSSF" },
     { "child": "OpenSSF SLSA",       "parent": "OpenSSF" },
-    { "child": "OpenLane",           "parent": "OpenROAD" }
+    { "child": "OpenLane",           "parent": "OpenROAD" },
+    { "child": "OVN",                "parent": "Open vSwitch" },
+    { "child": "OpenColorIO",        "parent": "OpenUSD" },
+    { "child": "OpenEXR",            "parent": "OpenUSD" }
   ]
 }

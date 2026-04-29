@@ -33,9 +33,9 @@ control plane and a tracker for personal progression through it.
 - Archived projects (OpenTracing, OpenCensus) listed with clear archive note.
 
 ### 3. File structure
-- No individual .md deep-dive files for the 430+ non-strategic projects. Only tables in README + ECOSYSTEM.md.
-- Deep-dive files (`projects/`) exist only for the ~20 strategic/practical tier projects.
-- `ECOSYSTEM.md` = full 430+ project reference (A–K categories). README = summary + Best 70 + navigation.
+- No individual .md deep-dive files for non-strategic projects. Only tables in README + ECOSYSTEM.md.
+- Deep-dive files (`projects/`) exist only for the strategic/practical tier (24 files as of 2026-04-29).
+- `ECOSYSTEM.md` = full 445+ project reference (A–L categories). README = summary + Best 70 + navigation.
 - `prompts.md` = LLM prompts. `context.md` = this file. `SESSION.md` = current state.
 
 ### 4. Best 70 personal strategy

@@ -2,7 +2,7 @@
 
 > *Your stack should not be "one open-source project." It should be an open-source control plane: Linux + containers + observability + policy + AI frameworks + agent orchestration + hardware/firmware validation.*
 
-Personal learning and contribution tracker covering **500+ truly open-source projects** across 11 domains — curated for **SuryaOS + AI systems + compliance + hardware/software acceleration**.
+Personal learning and contribution tracker covering **500+ truly open-source projects** across 12 domains — curated for **SuryaOS + AI systems + compliance + hardware/software acceleration**.
 
 Full reference: [`ECOSYSTEM.md`](ECOSYSTEM.md) · Ontology: [`ontology/`](ontology/) · Deep-dives: [`projects/`](projects/) · Journey: [`MY_JOURNEY.md`](MY_JOURNEY.md)
 
@@ -144,7 +144,8 @@ OpenTelemetry · OPA · OpenAPI · OCI · OpenSSF · OpenChain · OpenSCAP · Op
 OpenTelemetry · OpenSearch · OPA · OpenAPI · ONNX · OpenVINO · OpenCV · OpenBMC · OpenSCAP · OpenSSF Scorecard
 
 **Watchlist** (positioning):
-OpenTitan · OpenROAD · OpenLane · OpenSBI · OpenHW Group · OCP · StarlingX · OpenDataHub · OpenLineage · OpenMetadata · OpenTofu · OpenBao · OpenFGA
+OpenTitan · OpenROAD · OpenLane · OpenSBI · OpenHW Group · OCP · StarlingX · OpenDataHub · OpenLineage · OpenMetadata · OpenTofu · OpenBao · OpenFGA ·
+OKD · OpenAirInterface · OpenFPGA · Open vSwitch · OpenConfig · OpenHands · OpenUSD · OpenEXR
 
 **Not truly open** (listed for awareness):
 OpenAI (proprietary) · OpenRouter (commercial API) · OpenTracing/OpenCensus (archived → merged into OpenTelemetry)

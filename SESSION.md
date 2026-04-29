@@ -9,7 +9,7 @@ Last updated: 2026-04-29
 | Item | Status |
 |------|--------|
 | `README.md` | Best 70 personal strategy + open* map + navigation |
-| `ECOSYSTEM.md` | Full 430+ project A–K reference (languages, AI/ML, cloud, security, EDA, etc.) |
+| `ECOSYSTEM.md` | Full 445+ project A–L reference (languages, AI/ML, cloud, security, EDA, networking, RAN, ASWF, etc.) |
 | `context.md` | Architecture decisions, scope, ontology design, demo chains |
 | `prompts.md` | 8 LLM prompts (classify, GFI strategy, verify OSS, deep-dive gen, score, map relations, Cypher gen, cold-start) |
 | `SESSION.md` | This file |
@@ -99,7 +99,15 @@ Steps:
 - [x] `ontology/tests/test_age_integration.py` — ephemeral-graph round-trip
 - [x] CI wired: `python -m unittest discover -s ontology/tests`
 
-### P6 — Future improvements (open)
+### P6 — Ecosystem expansion (Section L) — DONE 2026-04-29
+- [x] OpenFPGA, OpenAirInterface, OKD, Open vSwitch, OVN, OpenConfig
+- [x] OpenHands, Open Interpreter (AI agents)
+- [x] OpenUSD, OpenEXR, OpenColorIO (ASWF film/VFX)
+- [x] OpenZFS, OpenNebula, OpenStreetMap, OpenAlex
+- [x] Watchlist tier expanded; relationships.json edges added (OVN→OVS,
+      OpenAirInterface↔StarlingX, OVS↔OpenStack, OpenHands→OpenTelemetry, etc.)
+
+### P7 — Future improvements (open)
 - [ ] Project loader: parse ECOSYSTEM.md tables → ontology Cypher INSERTs
 - [ ] First entry in `MY_JOURNEY.md` after picking a P0 project
 - [ ] Add badges (CI status, license, contributors) to README.md
