@@ -1,6 +1,6 @@
 # SESSION.md — open* repo current state
 
-Last updated: 2026-04-26
+Last updated: 2026-04-29
 
 ---
 
@@ -28,11 +28,17 @@ Last updated: 2026-04-26
 | `ontology/export.py` | AGE → OWL |
 | `scripts/discover.py` | GitHub search + contributor scoring |
 
-## Deep-dive project files (19 total)
+## Deep-dive project files (24 total)
 
 OpenTelemetry · OpenBMC · OpenStack · ONNX · OpenVINO · OpenCV · OPA · OpenSearch ·
 OpenTofu · OpenTitan · OpenROAD · OpenLineage · OpenSSF Scorecard · Kata Containers ·
-OpenEmbedded · OpenSCAP · OpenFeature · OpenAPI · OCI/runc
+OpenEmbedded · OpenSCAP · OpenFeature · OpenAPI · OCI/runc · StarlingX · OpenChain ·
+OpenFGA · OpenBao · OpenMetadata
+
+## CI
+
+`.github/workflows/validate.yml` — validates JSON, compiles Python, lints with ruff,
+checks relative .md links, verifies projects/*.md frontmatter on push/PR to master.
 
 ---
 
@@ -65,15 +71,22 @@ Steps:
 - [ ] Triage against criteria in `CONTRIBUTING.md`
 - [ ] Add qualified projects to ECOSYSTEM.md and `ontology/relationships.json`
 
-### P3 — Fill remaining deep-dives (strategic/watchlist)
-- [ ] `projects/starlingx.md`
-- [ ] `projects/openchain.md`
-- [ ] `projects/openfga.md`
-- [ ] `projects/openbao.md`
-- [ ] `projects/openmetadata.md`
+### P3 — Fill remaining deep-dives (strategic/watchlist) — DONE 2026-04-29
+- [x] `projects/starlingx.md`
+- [x] `projects/openchain.md`
+- [x] `projects/openfga.md`
+- [x] `projects/openbao.md`
+- [x] `projects/openmetadata.md`
 
-### P4 — Add GitHub Actions CI
-- [ ] `.github/workflows/validate.yml` — validate JSON files + check dead links in README
+### P4 — GitHub Actions CI — DONE 2026-04-29
+- [x] `.github/workflows/validate.yml` — JSON validation, Python compile, ruff lint,
+      relative-link check, frontmatter check on every push/PR to master
+
+### P5 — Future improvements (open)
+- [ ] Project loader: parse ECOSYSTEM.md tables → ontology Cypher INSERTs
+- [ ] First entry in `MY_JOURNEY.md` after picking a P0 project
+- [ ] Add badges (CI status, license, contributors) to README.md
+- [ ] Move "Best 70" personal strategy out of README into its own `STRATEGY.md`
 
 ---
 

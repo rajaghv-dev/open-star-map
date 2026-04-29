@@ -1,0 +1,73 @@
+name: validate
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  json-and-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate JSON files
+        run: |
+          for f in $(find ontology -name '*.json'); do
+            echo "Checking $f"
+            python -m json.tool "$f" > /dev/null
+          done
+
+      - name: Compile Python sources
+        run: |
+          python -m compileall -q scripts ontology
+
+      - name: Lint discover.py with ruff
+        run: |
+          pip install ruff
+          ruff check scripts/discover.py ontology/export.py
+
+  markdown-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for broken relative links in README and SESSION
+        run: |
+          python - <<'PY'
+          import pathlib, re, sys
+          root = pathlib.Path('.')
+          bad = []
+          for md in ['README.md', 'SESSION.md', 'CLAUDE.md', 'CONTRIBUTING.md',
+                    'ECOSYSTEM.md', 'context.md', 'prompts.md', 'MY_JOURNEY.md']:
+              p = root / md
+              if not p.exists():
+                  continue
+              for m in re.finditer(r'\]\(([^)#]+\.md)(?:#[^)]*)?\)', p.read_text()):
+                  target = (root / m.group(1)).resolve()
+                  if not target.exists():
+                      bad.append(f"{md}: missing {m.group(1)}")
+          if bad:
+              print('\n'.join(bad))
+              sys.exit(1)
+          print('All relative .md links resolve.')
+          PY
+
+  project-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify each projects/*.md has YAML frontmatter
+        run: |
+          fail=0
+          for f in projects/*.md; do
+            head -1 "$f" | grep -q '^---$' || { echo "Missing frontmatter: $f"; fail=1; }
+          done
+          exit $fail

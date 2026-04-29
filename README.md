@@ -169,7 +169,8 @@ See [`ontology/`](ontology/) — schema, seed concepts, relationships, bootstrap
 
 Contribution guides in [`projects/`](projects/):
 OpenTelemetry · OpenBMC · OpenStack · ONNX · OpenVINO · OpenCV · OPA · OpenSearch · OpenTofu ·
-OpenTitan · OpenROAD · OpenLineage · OpenSSF Scorecard · Kata Containers · OpenEmbedded · OpenSCAP · OpenFeature · OpenAPI · OCI/runc
+OpenTitan · OpenROAD · OpenLineage · OpenSSF Scorecard · Kata Containers · OpenEmbedded · OpenSCAP · OpenFeature · OpenAPI · OCI/runc ·
+StarlingX · OpenChain · OpenFGA · OpenBao · OpenMetadata
 
 ---
 

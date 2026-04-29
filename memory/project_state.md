@@ -9,7 +9,7 @@ type: project
 - **GitHub:** `rajaghv-dev/open-star-map` (public)
 - **Branch:** master
 
-## What exists (2026-04-26)
+## What exists (2026-04-29)
 
 ### Core files
 | File | Status |
@@ -34,19 +34,29 @@ type: project
 | `ontology/bootstrap.cypher` | One-time idempotent graph init |
 | `ontology/export.py` | AGE → owlready2 → open_star.owl |
 
-### Deep-dive project files (projects/)
+### Deep-dive project files (projects/) — 24 total
 OpenTelemetry · OpenBMC · OpenStack · ONNX · OpenVINO · OpenCV · OPA · OpenSearch ·
 OpenTofu · OpenTitan · OpenROAD · OpenLineage · OpenSSF Scorecard · Kata Containers ·
-OpenEmbedded · OpenSCAP · OpenFeature · OpenAPI · OCI/runc
+OpenEmbedded · OpenSCAP · OpenFeature · OpenAPI · OCI/runc · StarlingX · OpenChain ·
+OpenFGA · OpenBao · OpenMetadata
 
 ### Scripts
 | File | Status |
 |------|--------|
 | `scripts/discover.py` | GitHub API search + contributor-friendliness scorer |
 
+### CI
+| File | Status |
+|------|--------|
+| `.github/workflows/validate.yml` | JSON / Python compile / ruff / link / frontmatter checks |
+| `.github/ISSUE_TEMPLATE.md` | Issue template |
+
 ## Current phase
 **Repository complete. Pre-contribution.**
-All reference material is in place. Next step: pick a project, set up dev environment, find a good first issue.
+All reference material is in place; deep-dives cover every Strategic and named Watchlist
+project; CI validates JSON, Python, links, and frontmatter on every push.
+Next step: pick a P0 project (OpenTelemetry / OpenFeature / OpenSSF Scorecard),
+set up the dev environment, claim a `good first issue`.
 
 ## Key design decisions
 - Apache AGE = live ontology; OWL = export-only (same pattern as CFP conference pipeline)

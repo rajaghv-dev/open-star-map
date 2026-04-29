@@ -34,11 +34,12 @@ projects/           Deep-dive contribution guides (strategic/practical tier only
 scripts/            Discovery tooling
 ```
 
-## Deep-dive files that exist (projects/)
+## Deep-dive files that exist (projects/) — 24 total
 
 OpenTelemetry · OpenBMC · OpenStack · ONNX · OpenVINO · OpenCV · OPA · OpenSearch ·
 OpenTofu · OpenTitan · OpenROAD · OpenLineage · OpenSSF Scorecard · Kata Containers ·
-OpenEmbedded · OpenSCAP · OpenFeature · OpenAPI · OCI/runc
+OpenEmbedded · OpenSCAP · OpenFeature · OpenAPI · OCI/runc · StarlingX · OpenChain ·
+OpenFGA · OpenBao · OpenMetadata
 
 ## Standing rules
 
