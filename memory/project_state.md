@@ -48,8 +48,15 @@ OpenFGA · OpenBao · OpenMetadata
 ### CI
 | File | Status |
 |------|--------|
-| `.github/workflows/validate.yml` | JSON / Python compile / ruff / link / frontmatter checks |
+| `.github/workflows/validate.yml` | JSON / Python compile / ruff / unittest / link / frontmatter checks |
 | `.github/ISSUE_TEMPLATE.md` | Issue template |
+
+### Tests
+| File | Status |
+|------|--------|
+| `ontology/tests/test_static.py` | 12 stdlib unittest checks — runs in CI |
+| `ontology/tests/test_age_integration.py` | 7 AGE round-trip tests — auto-skip without `OPEN_STAR_AGE_DSN` |
+| `ontology/tests/README.md` | How to run + Docker recipe for AGE |
 
 ## Current phase
 **Repository complete. Pre-contribution.**

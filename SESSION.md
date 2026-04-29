@@ -38,7 +38,19 @@ OpenFGA · OpenBao · OpenMetadata
 ## CI
 
 `.github/workflows/validate.yml` — validates JSON, compiles Python, lints with ruff,
-checks relative .md links, verifies projects/*.md frontmatter on push/PR to master.
+runs ontology static tests, checks relative .md links, verifies projects/*.md
+frontmatter on push/PR to master.
+
+## Tests
+
+| File | Type | Runs in CI |
+|------|------|------------|
+| `ontology/tests/test_static.py` | stdlib unittest — JSON/Cypher/frontmatter checks | yes (12 tests) |
+| `ontology/tests/test_age_integration.py` | psycopg + AGE — ephemeral graph round-trip | auto-skip without DB (7 tests) |
+
+Integration test creates `open_star_test_<uuid>`, inserts dummy `test-*` projects
+and edges, asserts traversal and demo-chain ordering, drops the graph in tearDown.
+See `ontology/tests/README.md` for the local Docker recipe.
 
 ---
 
@@ -82,11 +94,17 @@ Steps:
 - [x] `.github/workflows/validate.yml` — JSON validation, Python compile, ruff lint,
       relative-link check, frontmatter check on every push/PR to master
 
-### P5 — Future improvements (open)
+### P5 — Ontology test harness — DONE 2026-04-29
+- [x] `ontology/tests/test_static.py` — 12 stdlib unittest checks
+- [x] `ontology/tests/test_age_integration.py` — ephemeral-graph round-trip
+- [x] CI wired: `python -m unittest discover -s ontology/tests`
+
+### P6 — Future improvements (open)
 - [ ] Project loader: parse ECOSYSTEM.md tables → ontology Cypher INSERTs
 - [ ] First entry in `MY_JOURNEY.md` after picking a P0 project
 - [ ] Add badges (CI status, license, contributors) to README.md
 - [ ] Move "Best 70" personal strategy out of README into its own `STRATEGY.md`
+- [ ] Optional CI matrix: integration test job that spins up an AGE container
 
 ---
 
