@@ -1,5 +1,5 @@
 ---
-name: OpenAPI Specification
+name: OpenAPI
 url: https://github.com/OAI/OpenAPI-Specification
 license: Apache-2.0
 language: YAML/JSON (spec), multi-language tooling

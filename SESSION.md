@@ -1,6 +1,6 @@
 # SESSION.md — open* repo current state
 
-Last updated: 2026-04-29
+Last updated: 2026-04-29 (late)
 
 ---
 
@@ -26,7 +26,14 @@ Last updated: 2026-04-29
 | `ontology/schema.cypher` | Apache AGE DDL |
 | `ontology/bootstrap.cypher` | One-time graph init |
 | `ontology/export.py` | AGE → OWL |
-| `scripts/discover.py` | GitHub search + contributor scoring |
+| `scripts/discover.py` | GitHub search + contributor scoring (refactored to expose helpers) |
+| `scripts/load_ecosystem.py` | Parse ECOSYSTEM.md → Cypher MERGEs (idempotent; --dsn or stdout) |
+| `scripts/check_drift.py` | Cross-validate ECOSYSTEM ↔ relationships ↔ projects/ ↔ seed |
+| `scripts/triage.py` | Wraps discover, filters out names already in ECOSYSTEM |
+| `scripts/journey.py` | Idempotent CLI for MY_JOURNEY.md (add/update/complete/remove) |
+| `scripts/run_prompt.py` | Run a numbered prompts.md prompt against the Anthropic API |
+| `ontology/queries.py` | Library of pre-canned Cypher queries (CLI + importable) |
+| `STRATEGY.md` | Best 70 personal control plane (extracted from README) |
 
 ## Deep-dive project files (24 total)
 
@@ -43,14 +50,22 @@ frontmatter on push/PR to master.
 
 ## Tests
 
-| File | Type | Runs in CI |
-|------|------|------------|
-| `ontology/tests/test_static.py` | stdlib unittest — JSON/Cypher/frontmatter checks | yes (12 tests) |
-| `ontology/tests/test_age_integration.py` | psycopg + AGE — ephemeral graph round-trip | auto-skip without DB (7 tests) |
+60 tests total — all green locally (7 AGE-integration tests auto-skip without DB).
 
-Integration test creates `open_star_test_<uuid>`, inserts dummy `test-*` projects
-and edges, asserts traversal and demo-chain ordering, drops the graph in tearDown.
-See `ontology/tests/README.md` for the local Docker recipe.
+| File | Type | CI |
+|------|------|----|
+| `ontology/tests/test_static.py` | seed/relationships/cypher/frontmatter | runs (12) |
+| `ontology/tests/test_queries.py` | Cypher generation in queries.py | runs (9) |
+| `ontology/tests/test_age_integration.py` | ephemeral AGE graph round-trip | runs in `age-integration` CI job (7) |
+| `scripts/tests/test_load_ecosystem.py` | Markdown → Cypher parsing | runs (8) |
+| `scripts/tests/test_check_drift.py` | drift detection on real + synthetic data | runs (2) |
+| `scripts/tests/test_journey.py` | CLI on temp MY_JOURNEY.md | runs (6) |
+| `scripts/tests/test_triage.py` | name-matching + Markdown render | runs (8) |
+| `scripts/tests/test_run_prompt.py` | template substitution + dry-run | runs (8) |
+
+The `age-integration` CI job boots `apache/age:PG16_latest` as a service container,
+runs `test_age_integration`, then smoke-tests `load_ecosystem.py` against a real
+graph and asserts >400 projects loaded (graph dropped after).
 
 ---
 
@@ -107,12 +122,24 @@ Steps:
 - [x] Watchlist tier expanded; relationships.json edges added (OVN→OVS,
       OpenAirInterface↔StarlingX, OVS↔OpenStack, OpenHands→OpenTelemetry, etc.)
 
-### P7 — Future improvements (open)
-- [ ] Project loader: parse ECOSYSTEM.md tables → ontology Cypher INSERTs
+### P7 — Backlog clean-up — DONE 2026-04-29
+- [x] `scripts/load_ecosystem.py` — full Markdown→Cypher loader with skill+foundation edges
+- [x] `scripts/check_drift.py` — cross-file drift validator
+- [x] `scripts/triage.py` — discover.py wrapper that filters by ECOSYSTEM
+- [x] `scripts/journey.py` — idempotent MY_JOURNEY editor
+- [x] `scripts/run_prompt.py` — Anthropic API runner for prompts.md
+- [x] `ontology/queries.py` — pre-canned Cypher queries library
+- [x] CI matrix: AGE container service job runs all 7 integration tests + load smoke-test
+- [x] README badges (CI, license, project count, deep-dives)
+- [x] `STRATEGY.md` extracted from README
+- [x] `relationships.json` extended with `teaches` + `governed_by` buckets
+- [x] All drift fixed: project names aligned, missing rows added (OpenStack,
+      StarlingX, Kata Containers, OpenFeature, OpenChain, OpenAPI), 3 duplicates removed
+
+### P8 — Future improvements (open)
 - [ ] First entry in `MY_JOURNEY.md` after picking a P0 project
-- [ ] Add badges (CI status, license, contributors) to README.md
-- [ ] Move "Best 70" personal strategy out of README into its own `STRATEGY.md`
-- [ ] Optional CI matrix: integration test job that spins up an AGE container
+- [ ] LICENSE file (currently no top-level LICENSE; README badge points at MIT)
+- [ ] Migration: render the legacy inline tables in README.md as a generated section
 
 ---
 

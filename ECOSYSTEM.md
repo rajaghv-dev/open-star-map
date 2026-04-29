@@ -228,10 +228,12 @@ Jump to: [A](#a-languages-runtimes-compilers) · [B](#b-aiml-deep-learning) · [
 | 194 | Packer | Image build | MPL-2.0 | [packer.io](https://packer.io) |
 | 195 | Nix | Package/build system | MIT | [nixos.org/nix](https://nixos.org/nix/) |
 | 196 | Guix | Package/build system | GPL-3.0 | [guix.gnu.org](https://guix.gnu.org) |
-| 197 | MLflow | ML lifecycle | Apache-2.0 | [mlflow.org](https://mlflow.org) |
-| 198 | Kubeflow | ML on Kubernetes | Apache-2.0 | [kubeflow.org](https://kubeflow.org) |
+| 197 | OpenStack | Open IaaS / cloud foundation | Apache-2.0 | [openstack.org](https://openstack.org) |
+| 198 | StarlingX | OpenInfra edge cloud | Apache-2.0 | [starlingx.io](https://starlingx.io) |
 | 199 | Open Cluster Management | Multicluster Kubernetes | Apache-2.0 | [open-cluster-management.io](https://open-cluster-management.io) |
 | 200 | OpenYurt | Edge Kubernetes | Apache-2.0 | [openyurt.io](https://openyurt.io) |
+| 200a | Kata Containers | OCI runtime with VM isolation | Apache-2.0 | [katacontainers.io](https://katacontainers.io) |
+| 200b | OpenFeature | Vendor-neutral feature-flag SDK/spec | Apache-2.0 | [openfeature.dev](https://openfeature.dev) |
 
 ---
 
@@ -349,6 +351,8 @@ Jump to: [A](#a-languages-runtimes-compilers) · [B](#b-aiml-deep-learning) · [
 | 294 | OpenBao | Secrets management | MPL-2.0 | [openbao.org](https://openbao.org) |
 | 295 | OpenCTI | Cyber-threat intelligence | Apache-2.0 | [github.com/OpenCTI-Platform/opencti](https://github.com/OpenCTI-Platform/opencti) |
 | 296 | OpenZiti | Zero-trust networking | Apache-2.0 | [openziti.io](https://openziti.io) |
+| 296a | OpenChain | OSS license compliance standard (ISO/IEC 5230) | CC-BY-4.0 / Apache-2.0 | [openchainproject.org](https://openchainproject.org) |
+| 296b | OpenAPI | API description specification | Apache-2.0 | [openapis.org](https://openapis.org) |
 
 ---
 
@@ -400,7 +404,6 @@ Jump to: [A](#a-languages-runtimes-compilers) · [B](#b-aiml-deep-learning) · [
 | 338 | LiteX | SoC builder | BSD | [github.com/enjoy-digital/litex](https://github.com/enjoy-digital/litex) |
 | 339 | OpenAMP | Asymmetric multiprocessing | BSD | [openampproject.org](https://openampproject.org) |
 | 340 | OpenThread | Thread networking stack | BSD-3 | [openthread.io](https://openthread.io) |
-| 341 | Zephyr RTOS | RTOS | Apache-2.0 | [zephyrproject.org](https://zephyrproject.org) |
 | 342 | open62541 | OPC UA implementation | MPL-2.0 | [open62541.org](https://open62541.org) |
 
 ---
@@ -523,7 +526,7 @@ Networking, telco/RAN, AI agents, film/VFX pipeline, hardware standards.
 | 431 | OpenFPGA | Open-source FPGA IP / fabric | MIT | [github.com/lnis-uofu/OpenFPGA](https://github.com/lnis-uofu/OpenFPGA) |
 | 432 | OpenAirInterface | Open 5G RAN + Core | Apache-2.0 | [openairinterface.org](https://openairinterface.org) |
 | 433 | OKD | Kubernetes distro (OpenShift upstream) | Apache-2.0 | [okd.io](https://okd.io) |
-| 434 | Open vSwitch (OVS) | Production virtual switch | Apache-2.0 | [openvswitch.org](https://openvswitch.org) |
+| 434 | Open vSwitch | Production virtual switch | Apache-2.0 | [openvswitch.org](https://openvswitch.org) |
 | 435 | OVN | Virtual networking on OVS | Apache-2.0 | [github.com/ovn-org/ovn](https://github.com/ovn-org/ovn) |
 | 436 | OpenConfig | Vendor-neutral network config models | Apache-2.0 | [openconfig.net](https://openconfig.net) |
 | 437 | OpenHands | Autonomous coding agent (formerly OpenDevin) | MIT | [github.com/All-Hands-AI/OpenHands](https://github.com/All-Hands-AI/OpenHands) |

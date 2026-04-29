@@ -69,6 +69,46 @@ def gh_get(path: str, token: Optional[str] = None) -> dict:
         return json.loads(resp.read().decode())
 
 
+def project_from_github_item(item: dict) -> Optional[Project]:
+    """Build a Project from a GitHub repo-search item, or None if name is not open*."""
+    name = item.get("name", "")
+    if not name.lower().startswith("open"):
+        return None
+    license_name = ""
+    lic = item.get("license")
+    if lic:
+        license_name = lic.get("spdx_id") or lic.get("name") or ""
+    return Project(
+        name=name,
+        full_name=item["full_name"],
+        url=item["html_url"],
+        description=(item.get("description") or "").strip(),
+        language=item.get("language") or "",
+        stars=item.get("stargazers_count", 0),
+        forks=item.get("forks_count", 0),
+        license=license_name,
+        open_issues=item.get("open_issues_count", 0),
+    )
+
+
+def enrich_with_gfi(p: Project, token: Optional[str]) -> None:
+    """Set good_first_issue_count on p (costs one extra API call)."""
+    try:
+        label_path = f"/repos/{p.full_name}/labels/good%20first%20issue"
+        gh_get(label_path, token)
+        issues_path = (
+            f"/search/issues?q=repo:{p.full_name}+label:%22good+first+issue%22"
+            f"+is:open+is:issue&per_page=1"
+        )
+        issue_data = gh_get(issues_path, token)
+        count = issue_data.get("total_count", 0)
+        p.has_good_first_issues = count > 0
+        p.good_first_issue_count = count
+        time.sleep(0.3)  # respect rate limit
+    except Exception:
+        pass
+
+
 def search_open_projects(
     token: Optional[str],
     min_stars: int = 500,
@@ -84,46 +124,12 @@ def search_open_projects(
     data = gh_get(path, token)
     items = data.get("items", [])
 
-    projects = []
+    projects: list[Project] = []
     for item in items:
-        name = item.get("name", "")
-        if not name.lower().startswith("open"):
+        p = project_from_github_item(item)
+        if p is None:
             continue
-
-        license_name = ""
-        lic = item.get("license")
-        if lic:
-            license_name = lic.get("spdx_id") or lic.get("name") or ""
-
-        p = Project(
-            name=name,
-            full_name=item["full_name"],
-            url=item["html_url"],
-            description=(item.get("description") or "").strip(),
-            language=item.get("language") or "",
-            stars=item.get("stargazers_count", 0),
-            forks=item.get("forks_count", 0),
-            license=license_name,
-            open_issues=item.get("open_issues_count", 0),
-        )
-
-        # Check good-first-issue label count (costs one API call per repo)
-        try:
-            label_path = f"/repos/{p.full_name}/labels/good%20first%20issue"
-            gh_get(label_path, token)
-            # If it didn't 404, the label exists — fetch issue count
-            issues_path = (
-                f"/search/issues?q=repo:{p.full_name}+label:%22good+first+issue%22"
-                f"+is:open+is:issue&per_page=1"
-            )
-            issue_data = gh_get(issues_path, token)
-            count = issue_data.get("total_count", 0)
-            p.has_good_first_issues = count > 0
-            p.good_first_issue_count = count
-            time.sleep(0.3)  # respect rate limit
-        except Exception:
-            pass
-
+        enrich_with_gfi(p, token)
         p.compute_score()
         projects.append(p)
 

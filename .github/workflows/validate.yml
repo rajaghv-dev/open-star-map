@@ -36,6 +36,74 @@ jobs:
       - name: Run ontology static tests
         run: python -m unittest discover -s ontology/tests -v
 
+      - name: Run script tests
+        run: python -m unittest discover -s scripts/tests -v
+
+      - name: Run drift check
+        run: python scripts/check_drift.py
+
+  age-integration:
+    runs-on: ubuntu-latest
+    services:
+      age:
+        image: apache/age:PG16_latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5455:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install psycopg
+        run: pip install "psycopg[binary]"
+
+      - name: Run AGE integration tests
+        env:
+          OPEN_STAR_AGE_DSN: postgresql://postgres:postgres@localhost:5455/postgres
+        run: python -m unittest ontology.tests.test_age_integration -v
+
+      - name: Smoke-test load_ecosystem.py against the live graph
+        env:
+          OPEN_STAR_AGE_DSN: postgresql://postgres:postgres@localhost:5455/postgres
+        run: |
+          python - <<'PY'
+          import os, psycopg
+          dsn = os.environ['OPEN_STAR_AGE_DSN']
+          with psycopg.connect(dsn, autocommit=True) as c:
+              c.execute("LOAD 'age';")
+              c.execute('SET search_path = ag_catalog, "$user", public;')
+              c.execute("SELECT create_graph('open_star_load_smoke');")
+          PY
+          python scripts/load_ecosystem.py \
+            --dsn "$OPEN_STAR_AGE_DSN" \
+            --graph open_star_load_smoke
+          python - <<'PY'
+          import os, psycopg
+          dsn = os.environ['OPEN_STAR_AGE_DSN']
+          with psycopg.connect(dsn, autocommit=True) as c:
+              c.execute("LOAD 'age';")
+              c.execute('SET search_path = ag_catalog, "$user", public;')
+              rows = c.execute(
+                "SELECT * FROM cypher('open_star_load_smoke', $$ "
+                "MATCH (p:Project) RETURN count(p) $$) AS (n agtype);"
+              ).fetchall()
+              print('Project count:', rows[0][0])
+              assert int(str(rows[0][0])) > 400, 'expected >400 projects'
+              c.execute("SELECT drop_graph('open_star_load_smoke', true);")
+          PY
+
   markdown-links:
     runs-on: ubuntu-latest
     steps:

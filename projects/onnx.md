@@ -1,5 +1,5 @@
 ---
-name: ONNX (Open Neural Network Exchange)
+name: ONNX
 url: https://github.com/onnx/onnx
 license: Apache-2.0
 language: Python, C++, Protobuf

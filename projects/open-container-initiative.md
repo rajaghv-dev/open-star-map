@@ -1,5 +1,5 @@
 ---
-name: Open Container Initiative (OCI) — runc
+name: runc
 url: https://github.com/opencontainers/runc
 license: Apache-2.0
 language: Go

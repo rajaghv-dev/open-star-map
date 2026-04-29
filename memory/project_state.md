@@ -43,7 +43,13 @@ OpenFGA · OpenBao · OpenMetadata
 ### Scripts
 | File | Status |
 |------|--------|
-| `scripts/discover.py` | GitHub API search + contributor-friendliness scorer |
+| `scripts/discover.py` | GitHub search + contributor scoring |
+| `scripts/load_ecosystem.py` | Parse ECOSYSTEM.md → Cypher MERGEs |
+| `scripts/check_drift.py` | Cross-validate ECOSYSTEM ↔ relationships ↔ projects ↔ seed |
+| `scripts/triage.py` | Filter discover.py output by ECOSYSTEM membership |
+| `scripts/journey.py` | Idempotent CLI for MY_JOURNEY.md |
+| `scripts/run_prompt.py` | Run prompts.md prompts via Anthropic API |
+| `ontology/queries.py` | Pre-canned Cypher query library |
 
 ### CI
 | File | Status |
@@ -51,12 +57,17 @@ OpenFGA · OpenBao · OpenMetadata
 | `.github/workflows/validate.yml` | JSON / Python compile / ruff / unittest / link / frontmatter checks |
 | `.github/ISSUE_TEMPLATE.md` | Issue template |
 
-### Tests
-| File | Status |
-|------|--------|
-| `ontology/tests/test_static.py` | 12 stdlib unittest checks — runs in CI |
-| `ontology/tests/test_age_integration.py` | 7 AGE round-trip tests — auto-skip without `OPEN_STAR_AGE_DSN` |
-| `ontology/tests/README.md` | How to run + Docker recipe for AGE |
+### Tests (60 total, all green)
+| File | Type | Tests |
+|------|------|-------|
+| `ontology/tests/test_static.py` | static | 12 |
+| `ontology/tests/test_queries.py` | queries.py Cypher gen | 9 |
+| `ontology/tests/test_age_integration.py` | AGE round-trip | 7 (CI service container) |
+| `scripts/tests/test_load_ecosystem.py` | Markdown→Cypher | 8 |
+| `scripts/tests/test_check_drift.py` | drift validator | 2 |
+| `scripts/tests/test_journey.py` | journey CLI | 6 |
+| `scripts/tests/test_triage.py` | triage + name match | 8 |
+| `scripts/tests/test_run_prompt.py` | prompt substitution | 8 |
 
 ## Current phase
 **Repository complete. Pre-contribution.**

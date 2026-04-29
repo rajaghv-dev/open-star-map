@@ -1,5 +1,5 @@
 ---
-name: OpenEmbedded / Yocto Project
+name: OpenEmbedded
 url: https://github.com/openembedded/openembedded-core
 license: MIT
 language: Python, Shell, BitBake

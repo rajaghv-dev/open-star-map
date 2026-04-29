@@ -1,5 +1,5 @@
 ---
-name: Open Policy Agent (OPA)
+name: Open Policy Agent
 url: https://github.com/open-policy-agent/opa
 license: Apache-2.0
 language: Go
